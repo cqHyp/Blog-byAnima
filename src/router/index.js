@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
+const main = resolve => require(['../components/main/main'],resolve);
 Vue.use(Router)
 
+export const thisRoute = [
+  {path:'/',name:'首页',component:main}
+]
+
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: HelloWorld
-    }
-  ]
+  routes:thisRoute
 })
