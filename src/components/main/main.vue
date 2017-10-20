@@ -19,24 +19,37 @@
         </div>
       </div>
       <div class="header-img-wrapper">
-        <img class="header-img" :src="headImg"/>
+        <img class="header-img" src="../../components/common/img/glasses.jpg"/>
         <div class="title-wrapper">
-          <div class="header-page-title-inside"></div>
+          <div class="header-page-title-inside">
+            <h1 class="entry-title">cqhPoldi's blog</h1>
+          </div>
         </div>
       </div>
     </div>
     <div class="content-wrapper">
-      <div class="container">
+      <div class="container" style="padding: 0">
         <div class="main">
           <div class="content-masonry">
-
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
+            <article-cell></article-cell>
           </div>
           <div class="navigation"></div>
         </div>
       </div>
       <div class="footer-wrapper">
         <div class="colophon-inside">
+          <section class="widget-container widget_search">
 
+          </section>
         </div>
       </div>
     </div>
@@ -47,12 +60,15 @@
 </template>
 <script>
   import ElButton from "../../../node_modules/element-ui/packages/button/src/button.vue";
-
+  import article from '../../components/common/module/Article.vue'
   export default {
-    components: {ElButton},
+    components: {
+      ElButton,
+      'article-cell': article
+    },
     data(){
       return{
-        headImg:'http://cqhpoldi.com/wordpress/wp-content/themes/anima/resources/images/headers/glasses.jpg'
+
       }
     }
   }
@@ -73,6 +89,7 @@
         display: flex;
         justify-content: space-between;
         z-index: 999;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
         .blog-name{
           height: 85px;
           float: left;
@@ -155,23 +172,27 @@
           margin: 0 auto;
           max-width: 1380px;
           right: 0;
-          top: 30%;
+          top: 37%;
           left: 0;
           -webkit-animation: .7s .15s header-title forwards;
           animation: .7s .15s header-title forwards;
           padding: 0 30px;
           box-sizing: border-box;
           .header-page-title-inside{
-            background-color: rgba(0,0,0,0.9);
-            box-shadow: 0 -70px 70px rgba(0,0,0,0.8) inset;
+            background-color: rgba(0,0,0,0.6);
+            box-shadow: 0 -70px 70px rgba(0,0,0,0.2) inset;
             position: relative;
             min-height: 150px;
-            opacity: 0.5;
             margin: 0 auto;
             padding: 2em 1em;
             border-radius: 10px 10px 0 0;
             text-align: center;
             color: #FFF;
+            .entry-title{
+              font-family: Raleway;
+              font-size: 300%;
+              font-weight: 300;
+            }
           }
         }
       }
@@ -198,6 +219,17 @@
           overflow: hidden;
           min-height: 400px;
           margin-bottom: 0;
+          .content-masonry{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            &>div{
+              margin-bottom: 50px;
+              &:nth-child(2n+1){
+                margin-right:40px;
+              }
+            }
+          }
         }
       }
       .footer-wrapper{
@@ -226,6 +258,27 @@
           max-width: 100%;
           padding-left: 2em;
           padding-right: 2em;
+          height: 100%;
+          &:nth-child(3n+1){
+            clear: both;
+            padding-left: 0;
+          }
+          .widget-container{
+            width: 33.3333%;
+            display: block;
+            float: left;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            position: relative;
+            padding: 2em;
+            /* align-items: center; */
+          }
         }
       }
     }

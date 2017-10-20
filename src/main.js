@@ -3,6 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'font-awesome/css/font-awesome.css'
+import $ from 'jquery'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
+import Article from './components/common/module/Article';
+
+Vue.component('article-cell',Article);
 
 Vue.config.productionTip = false
 
